@@ -1,5 +1,8 @@
 .App {
-  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 30px;
+  padding: 20px;
 }
 
 .App-logo {
@@ -35,4 +38,55 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.import__label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 50px;
+  background-color: #92C47D;
+  color: white;
+  justify-self: end;
+}
+
+.import__input {
+  display: none;
+}
+
+.employees {
+  border-collapse: collapse;
+}
+
+.employees__header {
+  border: 1px solid black;
+}
+
+.employees__header--cell {
+  background-color: #CFE2F3;
+}
+
+.employees__body {
+  border: 1px solid black;
+}
+
+th, td {
+  border-right: 1px solid black;
+}
+
+.error {
+  background-color: #F4CCCC;
+}
+
+
+.input__error {
+  display: flex;
+  justify-content: center;
+  width: 500px;
+  height: 75px;
+  align-items: center;
+  background-color: #F5CBCC;
+  border: 1px solid #9E5860;
+  justify-self: center;
 }
