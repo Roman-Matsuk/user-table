@@ -73,13 +73,13 @@ function App() {
   return (
     <div className="App">
       <label
-        className="import__label"
+        className="App__label"
         htmlFor="file-input-id"
       >
         Import users
       </label>
       <input
-        className="import__input"
+        className="App__input"
         type="file"
         id="file-input-id"
         accept=".csv"
@@ -96,7 +96,7 @@ function App() {
 
       {isFileCorrect
         ? <Table employeesData={employeesData} />
-        : <p className="input__error">
+        : <p className="App__error">
             File format is not correct
           </p>
       }

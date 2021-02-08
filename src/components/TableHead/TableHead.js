@@ -1,5 +1,6 @@
 import React from 'react';
-
+import './TableHead.css';
+import PropTypes from 'prop-types';
 
 export const TableHead = ({ header }) => {
 
@@ -14,4 +15,8 @@ export const TableHead = ({ header }) => {
       </tr>
     </thead>
   );
+};
+
+TableHead.propTypes = {
+  header: PropTypes.array.isRequired,
 };

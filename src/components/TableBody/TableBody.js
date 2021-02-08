@@ -1,12 +1,11 @@
 import React from 'react';
-
+import './TableBody.css';
+import PropTypes from 'prop-types';
 
 export const TableBody = ({ body, users }) => {
 
   const cellsValidation = (value, i, arr, usersArr) => {
     switch (i) {
-      case 1:
-        return;
 
       case 2:
         const duplicatePhoneIndx = usersArr
@@ -49,22 +48,15 @@ export const TableBody = ({ body, users }) => {
 
         return;
 
-      case 7:
-        if (value === '') {
-          value = 'FALSE';
-        };
-
-        return;
-
       case 9:
         if (value.includes('-')) {
-          const q = value.split('-');
+          const format = value.split('-');
 
-          return (q[0].length === 4) ? '' : 'error';
+          return (format[0].length === 4) ? '' : 'error';
         } else if (value.includes('/')) {
-          const q = value.split('/');
+          const format = value.split('/');
 
-          return (q[0].length === 2) ? '' : 'error';
+          return (format[0].length === 2) ? '' : 'error';
         } else {
           return 'error';
         }
@@ -87,7 +79,15 @@ export const TableBody = ({ body, users }) => {
         {body.map((item, i, arr) => {
           if (i === 7 && item === '') {
             item = 'FALSE';
+          };
+
+          if (i === 8 && item.split(', ').length === 1) {
+            item = item.slice(0, 2).toUpperCase();
           }
+
+          if (i === 8 && item.includes(', ')) {
+            item = item.split(', ').join(' | ');
+          };
 
           return (
             <td className={cellsValidation(item, i, arr, users)} key={i}>
@@ -98,3 +98,8 @@ export const TableBody = ({ body, users }) => {
     </tbody>
   );
 };
+
+TableBody.propTypes = {
+  body: PropTypes.array.isRequired,
+  users: PropTypes.arrayOf(PropTypes.array).isRequired,
+}

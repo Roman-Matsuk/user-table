@@ -1,10 +1,11 @@
 import React from 'react';
 import { TableBody } from "../TableBody/TableBody";
 import { TableHead } from "../TableHead/TableHead";
+import PropTypes from 'prop-types';
+import './Table.css';
 
 export const Table = ({ employeesData }) => {
 
-  console.log(employeesData);
   return (
     <table className="employees">
       {employeesData.map((item, i, arr) => {
@@ -16,4 +17,8 @@ export const Table = ({ employeesData }) => {
       })}
     </table>
   );
+};
+
+Table.propTypes = {
+  employeesData: PropTypes.array.isRequired,
 };
