@@ -1,0 +1,7 @@
+.employees__header {
+  border: 1px solid black;
+}
+
+.employees__header--cell {
+  background-color: #CFE2F3;
+}
